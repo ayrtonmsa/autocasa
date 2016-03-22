@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('htmlheader_title')
-    Register
+    Registrar
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
     <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+            <a href="{{ url('/home') }}"><b>Auto</b>Casa</a>
         </div>
 
         @if (count($errors) > 0)
@@ -24,11 +24,11 @@
         @endif
 
         <div class="register-box-body">
-            <p class="login-box-msg">Register a new membership</p>
+            <p class="login-box-msg">Registrar um Novo Usúario</p>
             <form action="{{ url('/register') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Full name" name="name" value="{{ old('name') }}"/>
+                    <input type="text" class="form-control" placeholder="Nome" name="name" value="{{ old('name') }}"/>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -36,30 +36,30 @@
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" name="password"/>
+                    <input type="password" class="form-control" placeholder="Senha" name="password"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Retype password" name="password_confirmation"/>
+                    <input type="password" class="form-control" placeholder="Repetir Senha" name="password_confirmation"/>
                     <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
-                            <label>
+                           <!--  <label>
                                 <input type="checkbox"> I agree to the <a href="#">terms</a>
-                            </label>
+                            </label> -->
                         </div>
                     </div><!-- /.col -->
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
                     </div><!-- /.col -->
                 </div>
             </form>
 
-            @include('auth.partials.social_login')
 
-            <a href="{{ url('/login') }}" class="text-center">I already have a membership</a>
+
+            <a href="{{ url('/login') }}" class="text-center">Tenho uma Conta</a>
         </div><!-- /.form-box -->
     </div><!-- /.register-box -->
 
