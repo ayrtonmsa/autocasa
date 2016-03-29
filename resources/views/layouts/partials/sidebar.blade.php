@@ -38,7 +38,7 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Cômodos</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Terraço</a></li>
+                    <li><a href="{{ url('home/house') }}">Terraço</a></li>
                     <li><a href="#">Sala</a></li>
                     <li><a href="#">Quarto 1</a></li>
                     <li><a href="#">Quarto 2</a></li>

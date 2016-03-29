@@ -13,83 +13,87 @@
 					<div class="panel-heading">Bem vindo!</div>
 
 					<div class="panel-body">
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-aqua">
-								<span class="info-box-icon">
-									<i class="fa fa-key"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Terraço</span>
+						<div class="row">
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-aqua">
+									<div class="inner"><h3>Terraço</h3></div>
+									<div class="icon"><i class="fa fa-key"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-green">
+									<div class="inner"><h3>Sala</h3></div>
+									<div class="icon"><i class="fa fa-gamepad"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-yellow">
+									<div class="inner"><h3>Quarto 1</h3></div>
+									<div class="icon"><i class="fa fa-hotel"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-red">
+									<div class="inner"><h3>Quarto 2</h3></div>
+									<div class="icon"><i class="fa fa-hotel"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-green">
-								<span class="info-box-icon">
-									<i class="fa fa-gamepad"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Sala</span>
+						<div class="row">
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-aqua">
+									<div class="inner"><h3>Cozinha</h3></div>
+									<div class="icon"><i class="fa fa-glass"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-yellow">
-								<span class="info-box-icon">
-									<i class="fa fa-hotel"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Quarto 1</span>
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-green">
+									<div class="inner"><h3>Banheiro</h3></div>
+									<div class="icon"><i class="fa fa-exclamation-circle"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-red">
-								<span class="info-box-icon">
-									<i class="fa fa-hotel"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Quarto 2</span>
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-yellow">
+									<div class="inner"><h3>Área Extra 1</h3></div>
+									<div class="icon"><i class="fa fa-home"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
 								</div>
 							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-aqua">
-								<span class="info-box-icon">
-									<i class="fa fa-glass"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Cozinha</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-green">
-								<span class="info-box-icon">
-									<i class="fa fa-exclamation-circle"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Banheiro</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-yellow">
-								<span class="info-box-icon">
-									<i class="fa fa-home"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Área Extra 1</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
-							<div class="info-box bg-red">
-								<span class="info-box-icon">
-									<i class="fa fa-home"></i>
-								</span>
-								<div class="info-box-content">
-									<span class="info-box-number">Área Extra 2</span>
+							<div class="col-lg-3 col-xs-6">
+								<div class="small-box bg-red">
+									<div class="inner"><h3>Área Extra 2</h3></div>
+									<div class="icon"><i class="fa fa-home"></i></div>
+									<a class="small-box-footer" href="{{ url('home/house') }}">
+										Ir para
+										<i class="fa fa-arrow-circle-right"></i>
+									</a>
 								</div>
 							</div>
 						</div>
