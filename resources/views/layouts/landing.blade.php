@@ -81,7 +81,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
             <div class="col-lg-2">
                 <br>
                 <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow2.png') }}">
-                <h5>Cômodidade</h5>
+                <h5>Comodidade</h5>
                 <p>controle a distância os dispositivos de sua casa.</p>
             </div>
         </div>
