@@ -18,6 +18,19 @@ Route::get('/', function () {
 Route::get('home/house', [
     'as' => 'house', 'uses' => 'HouseController@index'
 ]);
+
+// Route::get('lightssockets', [
+//     'as' => 'lightssockets', 'uses' => 'LightSocketController@index'
+// ]);
+// Route::get('lightssockets/create', [
+//     'as' => 'lightssockets/create', 'uses' => 'LightSocketController@create'
+// ]);
+// Route::post('lightssockets/save', [
+//     'as' => 'lightssockets/save', 'uses' => 'LightSocketController@save'
+// ]);
+
+Route::resource('lightssockets', 'LightSocketController');
+
 Route::post('home/alterarStatusCasa', [
     'as' => 'alterarStatusCasa', 'uses' => 'HouseController@alterarStatusCasa'
 ]);
