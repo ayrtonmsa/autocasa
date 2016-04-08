@@ -2,12 +2,12 @@
 
 @section('main-content')
 
-    <h1>Lights_sockets <a href="{{ url('lights_sockets/create') }}" class="btn btn-primary pull-right btn-sm">Add New Lights_socket</a></h1>
+    <h1>Luzes e Tomadas <a href="{{ url('lights_sockets/create') }}" class="btn btn-primary pull-right btn-sm">Adicionar Luz ou Tomada</a></h1>
     <div class="table">
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th><th>Code</th><th>Type</th><th>Name</th><th>Actions</th>
+                    <th>S.No</th><th>Código</th><th>Tipo</th><th>Nome</th><th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,14 +19,14 @@
                     <td><a href="{{ url('lights_sockets', $item->id) }}">{{ $item->code }}</a></td><td>{{ $item->type }}</td><td>{{ $item->name }}</td>
                     <td>
                         <a href="{{ url('lights_sockets/' . $item->id . '/edit') }}">
-                            <button type="submit" class="btn btn-primary btn-xs">Update</button>
+                            <button type="submit" class="btn btn-primary btn-xs">Editar</button>
                         </a> /
                         {!! Form::open([
                             'method'=>'DELETE',
                             'url' => ['lights_sockets', $item->id],
                             'style' => 'display:inline'
                         ]) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                            {!! Form::submit('Excluir', ['class' => 'btn btn-danger btn-xs']) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>

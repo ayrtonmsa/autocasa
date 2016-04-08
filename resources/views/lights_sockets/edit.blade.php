@@ -2,7 +2,7 @@
 
 @section('main-content')
 
-    <h1>Edit Lights_socket</h1>
+    <h1>Editar Luzes e Tomadas</h1>
     <hr/>
 
     {!! Form::model($lights_socket, [
@@ -12,28 +12,28 @@
     ]) !!}
 
                 <div class="form-group {{ $errors->has('code') ? 'has-error' : ''}}">
-                {!! Form::label('code', 'Code: ', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('code', 'Código: ', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
                     {!! Form::number('code', null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('code', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('type') ? 'has-error' : ''}}">
-                {!! Form::label('type', 'Type: ', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('type', 'Tipo: ', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
                     {!! Form::text('type', null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('type', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
-                {!! Form::label('name', 'Name: ', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('name', 'Nome: ', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
                     {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
             <div class="form-group {{ $errors->has('voltage') ? 'has-error' : ''}}">
-                {!! Form::label('voltage', 'Voltage: ', ['class' => 'col-sm-3 control-label']) !!}
+                {!! Form::label('voltage', 'Voltagem: ', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
                     {!! Form::number('voltage', null, ['class' => 'form-control', 'required' => 'required']) !!}
                     {!! $errors->first('voltage', '<p class="help-block">:message</p>') !!}
@@ -50,7 +50,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-3">
-            {!! Form::submit('Update', ['class' => 'btn btn-primary form-control']) !!}
+            {!! Form::submit('Editar', ['class' => 'btn btn-primary form-control']) !!}
         </div>
     </div>
     {!! Form::close() !!}

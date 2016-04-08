@@ -48,7 +48,7 @@
                     <li><a href="#">Àrea Extra 2</a></li>
                 </ul>
             </li>
-            <li><a href="{{ url('lightssockets/create') }}"><i class='fa fa-link'></i> <span>Cadastro Luzes e Tomadas</span></a></li>
+            <li><a href="{{ url('lights_sockets/create') }}"><i class='fa fa-link'></i> <span>Cadastro Luzes e Tomadas</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

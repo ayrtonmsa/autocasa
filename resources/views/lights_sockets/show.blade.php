@@ -7,7 +7,7 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>ID.</th> <th>Code</th><th>Type</th><th>Name</th>
+                    <th>ID.</th> <th>Código</th><th>Tipo</th><th>Nome</th>
                 </tr>
             </thead>
             <tbody>
