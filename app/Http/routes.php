@@ -44,7 +44,9 @@ Route::post('home/alterarStatusCasa', [
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
 Route::group(['middleware' => ['web']], function () {
-	//
+	Route::resource('logs', 'LogsController');
+});
+Route::group(['middleware' => ['web']], function () {
+	Route::resource('lights_sockets', 'Lights_SocketsController');
 });

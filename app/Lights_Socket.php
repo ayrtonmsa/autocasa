@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Log extends Model
+class Lights_Socket extends Model
 {
 
     /**
@@ -12,7 +12,7 @@ class Log extends Model
      *
      * @var string
      */
-    protected $table = 'logs';
+    protected $table = 'lights_sockets';
 
     /**
      * Attributes that should be mass-assignable.
