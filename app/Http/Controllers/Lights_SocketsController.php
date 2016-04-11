@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Lights_Socket;
+use App\Log;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
@@ -92,6 +93,7 @@ class Lights_SocketsController extends Controller
 
         $lights_socket = Lights_Socket::findOrFail($id);
         $lights_socket->update($request->all());
+        Log::create($request->all());
 
         Session::flash('flash_message', 'Lights_Socket updated!');
 
