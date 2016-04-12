@@ -18,7 +18,7 @@
 								<div class="small-box bg-aqua">
 									<div class="inner"><h3>Terraço</h3></div>
 									<div class="icon"><i class="fa fa-key"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('house/terraco') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>

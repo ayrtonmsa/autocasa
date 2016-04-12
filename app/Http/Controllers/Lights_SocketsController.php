@@ -116,4 +116,16 @@ class Lights_SocketsController extends Controller
         return redirect('lights_sockets');
     }
 
+    public function alterarStatus($id)
+    {
+        dd($lights_socket);
+        $lights_socket = Lights_Socket::findOrFail($id);
+        $lights_socket->update($request->all());
+        Log::create($request->all());
+
+        Session::flash('flash_message', 'Lights_Socket updated!');
+
+        return redirect('lights_sockets');
+    }
+
 }
