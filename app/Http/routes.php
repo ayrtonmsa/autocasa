@@ -29,7 +29,7 @@ Route::get('home/house', [
 //     'as' => 'lightssockets/save', 'uses' => 'LightSocketController@save'
 // ]);
 
-Route::get('lights_sockets/{$id}/alterarStatus', 'Lights_SocketsController@alterarStatus')->name('alterarStatus');
+Route::get('lights_sockets/{id}/alterarStatus', ['as' => 'alterarStatus', 'uses' => 'Lights_SocketsController@alterarStatus']);
 
 Route::resource('lightssockets', 'LightSocketController');
 
