@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Lights_Socket;
 use App\Log;
+use App\House;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Session;
@@ -92,7 +93,9 @@ class Lights_SocketsController extends Controller
         $this->validate($request, ['code' => 'required', 'type' => 'required', 'voltage' => 'required', 'status' => 'required', ]);
 
         $lights_socket = Lights_Socket::findOrFail($id);
+
         $lights_socket->update($request->all());
+
         Log::create($request->all());
 
         Session::flash('flash_message', 'Lights_Socket updated!');
@@ -119,7 +122,7 @@ class Lights_SocketsController extends Controller
     public function alterarStatus($id)
     {
         $lights_socket = Lights_Socket::findOrFail($id);
-        
+
         $log['code'] = $lights_socket['code'];
         $log['type'] = $lights_socket['type'];
         $log['name'] = $lights_socket['name'];
@@ -133,6 +136,8 @@ class Lights_SocketsController extends Controller
             $log['status'] = 1;
         }
         Log::create($log);
+
+        House::sendToArduino($log);
 
         Session::flash('flash_message', 'Lights_Socket updated!');
 
