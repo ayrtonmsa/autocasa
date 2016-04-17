@@ -129,14 +129,17 @@ class Lights_SocketsController extends Controller
         $log['voltage'] = $lights_socket['voltage'];
 
         if ($lights_socket['status'] != 0) {
-            $lights_socket->update(['status'=>0]);
+            //$lights_socket->update(['status'=>0]);
             $log['status'] = 0;
         }else{
-            $lights_socket->update(['status'=>1]);
+            //$lights_socket->update(['status'=>1]);
             $log['status'] = 1;
         }
+
         Log::create($log);
 
+        // vai enviar a alteração para ser criada pelo arduino fazendo com que a alteração só seja efetuada se o 
+        //arduino receber a mensagem
         House::sendToArduino($log);
 
         Session::flash('flash_message', 'Lights_Socket updated!');
