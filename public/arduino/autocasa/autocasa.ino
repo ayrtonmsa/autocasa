@@ -44,13 +44,13 @@ void loop() {
           switch (msg[1]) {
             case '1':
               if (Luz[msg[1]] == '1') digitalWrite(A0, HIGH); else digitalWrite(A0, LOW);
-              data = "code=" + msg[1];
+              data = "&code=" + msg[1];
               data += "&status=" + msg[2];
               data += "&type=" + msg[3];
             break;
             case '2':
               if (Luz[msg[1]] == '1') digitalWrite(A1, HIGH); else digitalWrite(A1, LOW);
-              data = "code=" + msg[1];
+              data = "&code=" + msg[1];
               data += "&status=" + msg[2];
               data += "&type=" + msg[3];
             break;
@@ -61,8 +61,8 @@ void loop() {
           Tomada[msg[1]] = msg[2];
           switch (msg[1]) {
             case '1':
-              if (Tomada[msg[1]] == '1') digitalWrite(A3, HIGH); else digitalWrite(A3, LOW);
-              data = "code=" + msg[1];
+              if (Tomada[msg[1]] == '1') digitalWrite(A2, HIGH); else digitalWrite(A3, LOW);
+              data = "&code=" + msg[1];
               data += "&status=" + msg[2];
               data += "&type=" + msg[3];
             break;
@@ -74,20 +74,22 @@ void loop() {
     //envia um post para atualizar o banco de dados.
     if(data != ""){
       IPAddress serverip(192, 168, 25, 5);
-      int serverport = 80;
+      int serverport = 8080;
       if(client.connect(serverip, serverport)){ 
-        client.print("POST /house/receiveOfArduino HTTP/1.1");
-        client.println("Host: 192.168.25.5");
-        client.println("Content-Type: application/x-www-form-urlencoded");
+        client.print("GET /autocasa/public/house/receiveOfArduino?");
+        client.print(data);
+        client.println(" HTTP/1.1\n");
+        client.println("Host: 192.168.25.5\n");
+        client.println("Content-Type: application/x-www-form-urlencoded\n");
         client.println("Content-Length: "); 
         client.println(data.length());
-        client.println();
-        client.println(data);
+        client.println("\n");
+        client.println("Accept: text/html");
+        client.println("\n");
       }
       if(client.connected()){
         client.stop();
       }
     }
   }
-  delay(30000);
 }
