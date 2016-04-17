@@ -24,10 +24,12 @@ void setup() {
   pinMode(A0, OUTPUT);
   pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
   data = String();
+  data = "";
   
   EthernetClient client = server.available();
   // SE receber um caracter...
@@ -70,7 +72,6 @@ void loop() {
         break;
       }
     }
-
     //envia um post para atualizar o banco de dados.
     if(data != ""){
       IPAddress serverip(192, 168, 25, 5);
@@ -78,11 +79,11 @@ void loop() {
       if(client.connect(serverip, serverport)){ 
         client.print("GET /autocasa/public/house/receiveOfArduino?");
         client.print(data);
-        client.println(" HTTP/1.1\n");
-        client.println("Host: 192.168.25.5\n");
-        client.println("Content-Type: application/x-www-form-urlencoded\n");
+        client.println(" HTTP/1.1");
+        client.println("Host: 192.168.25.5");
+        client.println("Content-Type: application/x-www-form-urlencoded");
         client.println("Content-Length: "); 
-        client.println(data.length());
+        client.print(data.length());
         client.println("\n");
         client.println("Accept: text/html");
         client.println("\n");
