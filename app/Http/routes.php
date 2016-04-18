@@ -15,16 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home/house', ['as' => 'house', 'uses' => 'HouseController@index']);
-
-Route::get('lights_sockets/{id}/alterarStatus', ['as' => 'alterarStatus', 'uses' => 'Lights_SocketsController@alterarStatus']);
-
-Route::resource('lights_sockets', 'Lights_SocketsController');
-
-Route::get('house/terraco', ['as' => 'terraco', 'uses' => 'HouseController@terraco']);
-
-Route::get('house/receiveOfArduino/code/{code}/status/{status}/type/{type}', ['as' => 'receiveOfArduino', 'uses' => 'HouseController@receiveOfArduino']);
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -36,8 +26,17 @@ Route::get('house/receiveOfArduino/code/{code}/status/{status}/type/{type}', ['a
 |
 */
 Route::group(['middleware' => ['web']], function () {
-	Route::resource('logs', 'LogsController');
-});
-Route::group(['middleware' => ['web']], function () {
-	Route::resource('lights_sockets', 'Lights_SocketsController');
+    Route::resource('logs', 'LogsController');
+
+    Route::resource('lights_sockets', 'Lights_SocketsController');
+
+    Route::resource('lights_sockets', 'Lights_SocketsController');
+
+    Route::get('home/house', ['as' => 'house', 'uses' => 'HouseController@index']);
+
+    Route::get('lights_sockets/{id}/alterarStatus', ['as' => 'alterarStatus', 'uses' => 'Lights_SocketsController@alterarStatus']);
+
+    Route::get('house/terraco', ['as' => 'terraco', 'uses' => 'HouseController@terraco']);
+
+    Route::get('house/receiveOfArduino/code/{code}/status/{status}/type/{type}', ['as' => 'receiveOfArduino', 'uses' => 'HouseController@receiveOfArduino']);
 });

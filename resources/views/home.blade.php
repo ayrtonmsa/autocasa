@@ -28,7 +28,7 @@
 								<div class="small-box bg-green">
 									<div class="inner"><h3>Sala</h3></div>
 									<div class="icon"><i class="fa fa-gamepad"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('home') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
@@ -38,7 +38,7 @@
 								<div class="small-box bg-yellow">
 									<div class="inner"><h3>Quarto 1</h3></div>
 									<div class="icon"><i class="fa fa-hotel"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('home') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
@@ -48,7 +48,7 @@
 								<div class="small-box bg-red">
 									<div class="inner"><h3>Quarto 2</h3></div>
 									<div class="icon"><i class="fa fa-hotel"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('home') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
@@ -60,7 +60,7 @@
 								<div class="small-box bg-aqua">
 									<div class="inner"><h3>Cozinha</h3></div>
 									<div class="icon"><i class="fa fa-glass"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('home') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
@@ -70,7 +70,7 @@
 								<div class="small-box bg-green">
 									<div class="inner"><h3>Banheiro</h3></div>
 									<div class="icon"><i class="fa fa-exclamation-circle"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('home') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
@@ -80,7 +80,7 @@
 								<div class="small-box bg-yellow">
 									<div class="inner"><h3>Área Extra 1</h3></div>
 									<div class="icon"><i class="fa fa-home"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('home') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
@@ -90,7 +90,7 @@
 								<div class="small-box bg-red">
 									<div class="inner"><h3>Área Extra 2</h3></div>
 									<div class="icon"><i class="fa fa-home"></i></div>
-									<a class="small-box-footer" href="{{ url('home/house') }}">
+									<a class="small-box-footer" href="{{ url('home') }}">
 										Ir para
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
