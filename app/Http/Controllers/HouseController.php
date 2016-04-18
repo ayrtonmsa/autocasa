@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lights_Socket;
+use App\Log;
 
 class HouseController extends Controller
 {
@@ -18,15 +19,15 @@ class HouseController extends Controller
         return view('house.terraco', compact('lights'));
     }
 
-    public static function receiveOfArduino()
+    public static function receiveOfArduino($code,$status,$type)
     {
-        $code = $_GET['code'];
-        $status = $_GET['status'];
-        $type = $_GET['type'];
         if($type == 'L'){
             Lights_Socket::where('code',$code)->where('type',$type)->update(['status'=>$status]);
         }elseif ($type == 'T') {
             Lights_Socket::where('code',$code)->where('type',$type)->update(['status'=>$status]);
+        }else{
+            $name['name'] = 'Erro';
+            Log::create($name);
         }
         return redirect()->back();
     }

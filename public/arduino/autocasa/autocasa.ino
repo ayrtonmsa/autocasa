@@ -1,5 +1,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
+#include <Bridge.h>
+#include <HttpClient.h>
 
 //Configurações do Ethernet Shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
@@ -17,6 +19,7 @@ char msg[5] = "00M#";
 
 // String que vai enviar os dados para a página
 String data;
+String rota;
 
 void setup() {
   Ethernet.begin(mac, ip, gateway, subnet);
@@ -28,16 +31,19 @@ void setup() {
 }
 
 void loop() {
+  HttpClient cliente;
   data = String();
   data = "";
-  
+  rota = String();
+  rota = "";
+
   EthernetClient client = server.available();
   // SE receber um caracter...
   if (client) {
     // guarda o caracter na string 'msg'
     msg[1] = msg[2]; msg[2] = msg[3]; msg[3] = msg[4];
     msg[4] = client.read();
-    
+
     if (msg[4] == '#') {
       switch (msg[3]) {
         case 'L':
@@ -46,15 +52,21 @@ void loop() {
           switch (msg[1]) {
             case '1':
               if (Luz[msg[1]] == '1') digitalWrite(A0, HIGH); else digitalWrite(A0, LOW);
-              data = "&code=" + msg[1];
-              data += "&status=" + msg[2];
-              data += "&type=" + msg[3];
+              //data = "&code=" + msg[1];
+              //data += "&status=" + msg[2];
+              //data += "&type=" + msg[3];
+              data = "/code/" + msg[1];
+              data += "/status/" + msg[2];
+              data += "/type/" + msg[3];
             break;
             case '2':
               if (Luz[msg[1]] == '1') digitalWrite(A1, HIGH); else digitalWrite(A1, LOW);
-              data = "&code=" + msg[1];
-              data += "&status=" + msg[2];
-              data += "&type=" + msg[3];
+              //data = "&code=" + msg[1];
+              //data += "&status=" + msg[2];
+              //data += "&type=" + msg[3];
+              data = "/code/" + msg[1];
+              data += "/status/" + msg[2];
+              data += "/type/" + msg[3];
             break;
           }
           break;
@@ -64,9 +76,12 @@ void loop() {
           switch (msg[1]) {
             case '1':
               if (Tomada[msg[1]] == '1') digitalWrite(A2, HIGH); else digitalWrite(A3, LOW);
-              data = "&code=" + msg[1];
-              data += "&status=" + msg[2];
-              data += "&type=" + msg[3];
+              //data = "&code=" + msg[1];
+              //data += "&status=" + msg[2];
+              //data += "&type=" + msg[3];
+              data = "/code/" + msg[1];
+              data += "/status/" + msg[2];
+              data += "/type/" + msg[3];
             break;
           }
         break;
@@ -76,17 +91,20 @@ void loop() {
     if(data != ""){
       IPAddress serverip(192, 168, 25, 5);
       int serverport = 8080;
-      if(client.connect(serverip, serverport)){ 
-        client.print("GET /autocasa/public/house/receiveOfArduino?");
-        client.print(data);
-        client.println(" HTTP/1.1");
-        client.println("Host: 192.168.25.5");
-        client.println("Content-Type: application/x-www-form-urlencoded");
-        client.println("Content-Length: "); 
-        client.print(data.length());
-        client.println("\n");
-        client.println("Accept: text/html");
-        client.println("\n");
+      if(client.connect(serverip, serverport)){
+        //client.print("GET /autocasa/public/house/receiveOfArduino?");
+        //client.print(data);
+        //client.println(" HTTP/1.1");
+        //client.println("Host: 192.168.25.5");
+        //client.println("Content-Type: application/x-www-form-urlencoded");
+        //client.println("Content-Length: ");
+        //client.print(data.length());
+        //client.println("\n");
+        //client.println("Accept: text/html");
+        //client.println("\n");
+        rota = "http://192.168.25.5/house/receiveOfArduino";
+        rota += data;
+        cliente.get(rota);
       }
       if(client.connected()){
         client.stop();

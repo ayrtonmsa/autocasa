@@ -23,7 +23,7 @@ Route::resource('lights_sockets', 'Lights_SocketsController');
 
 Route::get('house/terraco', ['as' => 'terraco', 'uses' => 'HouseController@terraco']);
 
-Route::get('house/receiveOfArduino', ['as' => 'receiveOfArduino', 'uses' => 'HouseController@receiveOfArduino']);
+Route::get('house/receiveOfArduino/code/{code}/status/{status}/type/{type}', ['as' => 'receiveOfArduino', 'uses' => 'HouseController@receiveOfArduino']);
 
 /*
 |--------------------------------------------------------------------------
