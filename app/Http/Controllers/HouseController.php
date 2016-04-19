@@ -29,7 +29,6 @@ class HouseController extends Controller
             $name['name'] = 'Erro';
             Log::create($name);
         }
-        return redirect()->back();
     }
 
 }

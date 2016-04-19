@@ -1,7 +1,5 @@
 #include <SPI.h>
 #include <Ethernet.h>
-#include <Bridge.h>
-#include <HttpClient.h>
 
 //Configurações do Ethernet Shield
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
@@ -9,6 +7,8 @@ byte ip[] = { 192, 168, 25, 15 }; // ip que o arduino assumirá
 byte gateway[] = { 192, 168, 25, 1 }; // ip do roteador
 byte subnet[] = { 255, 255, 255, 0 }; // mascara da red
 EthernetServer server(8081); // Cria o servidor na porta 8081
+
+EthernetClient clientaux; // cria um cliente auxiliar para enviar informações http para o servidor
 
 // String que representa o estado dos dispositivos
 char Luz[5] = "00L#";
@@ -19,7 +19,6 @@ char msg[5] = "00M#";
 
 // String que vai enviar os dados para a página
 String data;
-String rota;
 
 void setup() {
   Ethernet.begin(mac, ip, gateway, subnet);
@@ -31,11 +30,8 @@ void setup() {
 }
 
 void loop() {
-  HttpClient cliente;
   data = String();
   data = "";
-  rota = String();
-  rota = "";
 
   EthernetClient client = server.available();
   // SE receber um caracter...
@@ -89,25 +85,19 @@ void loop() {
     }
     //envia um post para atualizar o banco de dados.
     if(data != ""){
-      IPAddress serverip(192, 168, 25, 5);
-      int serverport = 8080;
-      if(client.connect(serverip, serverport)){
-        //client.print("GET /autocasa/public/house/receiveOfArduino?");
-        //client.print(data);
-        //client.println(" HTTP/1.1");
-        //client.println("Host: 192.168.25.5");
-        //client.println("Content-Type: application/x-www-form-urlencoded");
-        //client.println("Content-Length: ");
-        //client.print(data.length());
-        //client.println("\n");
-        //client.println("Accept: text/html");
-        //client.println("\n");
-        rota = "http://192.168.25.5/house/receiveOfArduino";
-        rota += data;
-        cliente.get(rota);
+      Serial.println("Connecting to Client...");
+      if(clientaux.connect("192.168.25.5:8080", 8080)){
+        Serial.println("Client Connected...");
+     // Make a HTTP request:
+       clientaux.print("GET http://192.168.25.5:8080/autocasa/public/house/receiveOfArduino/code/1/status/1/type/L");
+       clientaux.println(" HTTP/1.1");
+       clientaux.println("Host: 192.168.25.5:8080");
+       clientaux.println();
+      }else{
+        Serial.println("connection failed...");
       }
-      if(client.connected()){
-        client.stop();
+      if(clientaux.connected()){
+        clientaux.stop();
       }
     }
   }
