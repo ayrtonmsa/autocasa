@@ -14,7 +14,7 @@ class House
     {
         $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
-        socket_connect($sock,"192.168.9.31", 8081);
+        socket_connect($sock,"192.168.25.31", 80);
 
          //ira enviar sempre 4 caracteres para no maximo 9 dispositivos para cada tipo.
         //exemplo code 1(lampada 1) status 0(desligar lampada) type L(lamapada) terminador #(caractere de finalização)

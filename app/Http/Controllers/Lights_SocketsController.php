@@ -129,10 +129,10 @@ class Lights_SocketsController extends Controller
         $log['voltage'] = $lights_socket['voltage'];
 
         if ($lights_socket['status'] != 0) {
-            //$lights_socket->update(['status'=>0]);
+            $lights_socket->update(['status'=>0]);
             $log['status'] = 0;
         }else{
-            //$lights_socket->update(['status'=>1]);
+            $lights_socket->update(['status'=>1]);
             $log['status'] = 1;
         }
 
