@@ -13,15 +13,50 @@ char Tomada[5] = "00T#";
 char Status[6] = "00L0T";
 // String onde é guardada as msgs recebidas
 char msg[5] = "00M#";
+// variaveis dos botoes
+int botao1 = 6;
+int botao2 = 7;
+int bot1e = 0;
+int bot2e = 0;
 void setup() {
   Ethernet.begin(mac, ip, gateway, subnet);
   server.begin();
   pinMode(A0, OUTPUT);
   pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
+  pinMode(botao1, INPUT);
+  pinMode(botao2, INPUT);
   Serial.begin(9600);
 }
 void loop() {
+  bot1e = digitalRead(botao1);
+  if (bot1e == HIGH) {
+    if (Status[0] == '1') {
+      Status[0] = '0';
+    } else {
+      Status[0] = '1';
+    }
+    delay(150);
+  }
+  if (Status[0] == '1') {
+    digitalWrite(A0, HIGH);
+  } else {
+    digitalWrite(A0, LOW);
+  }
+  bot2e = digitalRead(botao2);
+  if (bot2e == HIGH) {
+    if (Status[1] == '1') {
+      Status[1] = '0';
+    } else {
+      Status[1] = '1';
+    }
+    delay(150);
+  }
+  if (Status[1] == '1') {
+    digitalWrite(A1, HIGH);
+  } else {
+    digitalWrite(A1, LOW);
+  }
   EthernetClient client = server.available();
   // SE receber um caracter...
   if (client) {
@@ -56,7 +91,7 @@ void loop() {
           break;
         case 'R':
           client.write(Status);
-        break;
+          break;
       }
     }
   }
