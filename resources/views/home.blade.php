@@ -22,15 +22,7 @@
 
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-lg-3 col-xs-6">
-								<div class="small-box bg-aqua">
-									<div class="inner"><h3>Terraço</h3></div>
-									<div class="icon"><i class="fa fa-key"></i></div>
-									<a class="small-box-footer" href="{{ url('house/terraco') }}">
-										Ir para
-										<i class="fa fa-arrow-circle-right"></i>
-									</a>
-								</div>
+							<div class="col-lg-3 col-xs-6" style="position:absolute; left:100px; top:100px; background-color: red; width=100px; height=100px;" >
 							</div>
 							<div class="col-lg-3 col-xs-6">
 								<div class="small-box bg-green">
@@ -110,7 +102,9 @@
 
 					<div class="panel-body">
 						<div class="row">
-							<div class="featured-image" style="background-image: url('{{ asset('/img/planta-casa-simples.jpg')}}') "></div>
+							<div class="featured-image" style="background-image: url('{{ asset('/img/planta-casa-simples.jpg')}}') ">
+								<div></div>
+							</div>
 						</div>
 					</div>
 
