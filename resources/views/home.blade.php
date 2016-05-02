@@ -4,6 +4,14 @@
 	Home
 @endsection
 
+<style>
+	.featured-image {
+	    background: no-repeat center;
+	    width: 100%;
+	    height: 100%;
+	    background-size: cover;
+	}
+</style>
 
 @section('main-content')
 	<div class="container spark-screen">
@@ -98,6 +106,15 @@
 							</div>
 						</div>
 					</div>
+
+
+					<div class="panel-body">
+						<div class="row">
+							<div class="featured-image" style="background-image: url('{{ asset('/img/planta-casa-simples.jpg')}}') "></div>
+						</div>
+					</div>
+
+
 				</div>
 			</div>
 		</div>

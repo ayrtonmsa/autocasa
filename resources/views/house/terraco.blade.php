@@ -20,7 +20,7 @@
 											<div class="inner"><h3>{{$light->name}}</h3></div>
 										</a>
 									</div> -->
-									<?php 
+									<?php
 										if (isset($luzes[($light->code -1)])&&($luzes[($light->code -1)] == "0")) {
 											$lamp = "/img/lampada-apagada.jpg";
 										}elseif (isset($luzes[($light->code -1)])&&($luzes[($light->code -1)] == "1")) {
