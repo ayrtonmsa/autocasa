@@ -48,7 +48,8 @@ class Lights_SocketsController extends Controller
 
         Lights_Socket::create($request->all());
 
-        Session::flash('flash_message', 'Lights_Socket added!');
+        Session::flash('flash_message', 'Luz/Tomada adicionada com sucesso!');
+        Session::flash('sucess', 'Sucess!');
 
         return redirect('lights_sockets');
     }
@@ -98,7 +99,8 @@ class Lights_SocketsController extends Controller
 
         Log::create($request->all());
 
-        Session::flash('flash_message', 'Lights_Socket updated!');
+        Session::flash('flash_message', 'Luz/Tomada alterada com sucesso!');
+        Session::flash('sucess', 'Sucess!');
 
         return redirect('lights_sockets');
     }
@@ -114,7 +116,8 @@ class Lights_SocketsController extends Controller
     {
         Lights_Socket::destroy($id);
 
-        Session::flash('flash_message', 'Lights_Socket deleted!');
+        Session::flash('flash_message', 'Luz/Tomada deletada com sucesso!');
+        Session::flash('error', 'Error!');
 
         return redirect('lights_sockets');
     }
@@ -138,11 +141,9 @@ class Lights_SocketsController extends Controller
 
         Log::create($log);
 
-        // vai enviar a alteração para ser criada pelo arduino fazendo com que a alteração só seja efetuada se o 
+        // vai enviar a alteração para ser criada pelo arduino fazendo com que a alteração só seja efetuada se o
         //arduino receber a mensagem
         House::sendToArduino($log);
-
-        Session::flash('flash_message', 'Lights_Socket updated!');
 
         return redirect('house/terraco');
     }
