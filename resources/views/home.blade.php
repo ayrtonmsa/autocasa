@@ -22,8 +22,10 @@
 
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-lg-3 col-xs-6" style="position:absolute; left:100px; top:100px; background-color: red; width=100px; height=100px;" >
-							</div>
+							<a class="small-box-footer" href="{{ url('house/terraco') }}">
+								<div class="col-lg-3 col-xs-6" style="position:absolute; left:65px; top:380px; width:330px; height:280px;" >
+								</div>
+							</a>
 							<div class="col-lg-3 col-xs-6">
 								<div class="small-box bg-green">
 									<div class="inner"><h3>Sala</h3></div>
