@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
-					<div class="panel-heading">Terraço</div>
+					<div class="panel-heading">Sala</div>
 
 					<div class="panel-body">
 						<div class="row">
@@ -22,11 +22,26 @@
 									</div> -->
 									<?php
 										if (isset($luzes[($light->code -1)])&&($luzes[($light->code -1)] == "0")) {
-											$lamp = "/img/lampada-apagada.jpg";
+											if($light->type == 'L')
+											{
+												$lamp = "/img/lampada-apagada.jpg";
+											}else{
+												$lamp = "/img/off.jpg";
+											}
 										}elseif (isset($luzes[($light->code -1)])&&($luzes[($light->code -1)] == "1")) {
-											$lamp ="/img/lampada-acesa.jpg";
+											if($light->type == 'L')
+											{
+												$lamp ="/img/lampada-acesa.jpg";
+											}else{
+												$lamp = "/img/on.jpg";
+											}
 										}else{
-											$lamp = "/img/lampada-disconectada.jpg";
+											if($light->type == 'L')
+											{
+												$lamp = "/img/lampada-disconectada.jpg";
+											}else{
+												$lamp = "/img/off1.jpg";
+											}
 										}
 									?>
 									<a href="{{ url('lights_sockets/' . $light->id . '/alterarStatus') }}">

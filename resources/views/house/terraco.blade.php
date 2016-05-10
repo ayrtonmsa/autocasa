@@ -24,11 +24,26 @@
 								<div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:130px; top:240px;">
 									<?php
 										if (isset($luzes[($lights[0]->code -1)])&&($luzes[($lights[0]->code -1)] == "0")) {
-											$lamp = "/img/lampada-apagada.jpg";
+											if($lights[0]->type == 'L')
+											{
+												$lamp = "/img/lampada-apagada.jpg";
+											}else{
+												$lamp = "/img/off.jpg";
+											}
 										}elseif (isset($luzes[($lights[0]->code -1)])&&($luzes[($lights[0]->code -1)] == "1")) {
-											$lamp ="/img/lampada-acesa.jpg";
+											if($lights[0]->type == 'L')
+											{
+												$lamp ="/img/lampada-acesa.jpg";
+											}else{
+												$lamp = "/img/on.jpg";
+											}
 										}else{
-											$lamp = "/img/lampada-disconectada.jpg";
+											if($lights[0]->type == 'L')
+											{
+												$lamp = "/img/lampada-disconectada.jpg";
+											}else{
+												$lamp = "/img/off1.jpg";
+											}
 										}
 									?>
 									<a href="{{ url('lights_sockets/' . $lights[0]->id . '/alterarStatus') }}" >
@@ -39,11 +54,26 @@
 								<div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:16px; top:420px;">
 									<?php
 										if (isset($luzes[($lights[1]->code -1)])&&($luzes[($lights[1]->code -1)] == "0")) {
-											$lamp = "/img/lampada-apagada.jpg";
+											if($lights[1]->type == 'L')
+											{
+												$lamp = "/img/lampada-apagada.jpg";
+											}else{
+												$lamp = "/img/off.jpg";
+											}
 										}elseif (isset($luzes[($lights[1]->code -1)])&&($luzes[($lights[1]->code -1)] == "1")) {
-											$lamp ="/img/lampada-acesa.jpg";
+											if($lights[1]->type == 'L')
+											{
+												$lamp ="/img/lampada-acesa.jpg";
+											}else{
+												$lamp = "/img/on.jpg";
+											}
 										}else{
-											$lamp = "/img/lampada-disconectada.jpg";
+											if($lights[1]->type == 'L')
+											{
+												$lamp = "/img/lampada-disconectada.jpg";
+											}else{
+												$lamp = "/img/off1.jpg";
+											}
 										}
 									?>
 									<a href="{{ url('lights_sockets/' . $lights[1]->id . '/alterarStatus') }}">
@@ -69,11 +99,26 @@
 								<div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:260px; top:150px;">
 									<?php
 										if (isset($luzes[($lights[3]->code -1)])&&($luzes[($lights[3]->code -1)] == "0")) {
-											$lamp = "/img/lampada-apagada.jpg";
+											if($lights[3]->type == 'L')
+											{
+												$lamp = "/img/lampada-apagada.jpg";
+											}else{
+												$lamp = "/img/off.jpg";
+											}
 										}elseif (isset($luzes[($lights[3]->code -1)])&&($luzes[($lights[3]->code -1)] == "1")) {
-											$lamp ="/img/lampada-acesa.jpg";
+											if($lights[3]->type == 'L')
+											{
+												$lamp ="/img/lampada-acesa.jpg";
+											}else{
+												$lamp = "/img/on.jpg";
+											}
 										}else{
-											$lamp = "/img/lampada-disconectada.jpg";
+											if($lights[3]->type == 'L')
+											{
+												$lamp = "/img/lampada-disconectada.jpg";
+											}else{
+												$lamp = "/img/off1.jpg";
+											}
 										}
 									?>
 									<a href="{{ url('lights_sockets/' . $lights[3]->id . '/alterarStatus') }}">

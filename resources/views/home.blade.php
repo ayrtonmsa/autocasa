@@ -58,7 +58,7 @@
 
 					<div class="panel-body">
 						<div class="row">
-							<div class="featured-image" style="background-image: url('{{ asset('/img/planta-casa-simples.jpg')}}') ">
+							<div class="featured-image" style="background-image: url('{{ asset('/img/planta_casa.jpg')}}') ">
 								<div></div>
 							</div>
 						</div>
