@@ -30,7 +30,7 @@
 								<div class="col-lg-3 col-xs-6" style="position:absolute; left:400px; top:150px; width:140px; height:280px;" onMouseOver="this.style.backgroundColor='rgba(255,255,0,0.4)'" onMouseOut="this.style.backgroundColor='transparent'">
 								</div>
 							</a>
-							<a class="small-box-footer" href="{{ url('house/quarto1') }}">
+							<a class="small-box-footer" href="{{ url('house/quarto') }}">
 								<div class="col-lg-3 col-xs-6" style="position:absolute; left:545px; top:150px; width:355px; height:280px;" onMouseOver="this.style.backgroundColor='rgba(255,255,0,0.4)'" onMouseOut="this.style.backgroundColor='transparent'">
 								</div>
 							</a>

@@ -148,4 +148,26 @@ class Lights_SocketsController extends Controller
         return redirect('house/terraco');
     }
 
+    public function alterarStatusOff($id)
+    {
+        $lights_socket = Lights_Socket::findOrFail($id);
+
+        $log['code'] = $lights_socket['code'];
+        $log['type'] = $lights_socket['type'];
+        $log['name'] = $lights_socket['name'];
+        $log['voltage'] = $lights_socket['voltage'];
+
+        if ($lights_socket['status'] != 0) {
+            $lights_socket->update(['status'=>0]);
+            $log['status'] = 0;
+        }else{
+            $lights_socket->update(['status'=>1]);
+            $log['status'] = 1;
+        }
+
+        Log::create($log);
+
+        return redirect('house/quarto');
+    }
+
 }

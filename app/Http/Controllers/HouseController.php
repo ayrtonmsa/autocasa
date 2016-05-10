@@ -18,19 +18,10 @@ class HouseController extends Controller
 
         $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
-        //socket_connect($sock,"192.168.25.31", 80);
-
-        if(!socket_connect($sock , '192.168.25.31' , 80))
-        {
-            $errorcode = socket_last_error();
-            $errormsg = socket_strerror($errorcode);
-             
-            die("Could not connect: [$errorcode] $errormsg \n");
-        }
-         dd('oi');
+        socket_connect($sock , '192.168.25.31' , 80);
 
         socket_write($sock,'R#',2); //Requisita o status do sistema.
- 
+
 		// Espera e lê o status e define o status da luz na pagina.
 		$status = socket_read($sock,6);
 		$status = explode("L", $status);
@@ -39,15 +30,22 @@ class HouseController extends Controller
 		$tomadas = $status[0];
 
 		$luzes = str_split($luzes);
-		for ($i=0; $i < count($luzes); $i++) { 
+		for ($i=0; $i < count($luzes); $i++) {
 			Lights_Socket::where('code',$i)->where('type','L')->update(['status'=>$luzes[$i]]);
 		}
 		$tomadas = str_split($tomadas);
-		for ($i=0; $i < count($tomadas); $i++) { 
+		for ($i=0; $i < count($tomadas); $i++) {
 			Lights_Socket::where('code',$i)->where('type','T')->update(['status'=>$tomadas[$i]]);
 		}
 
         return view('house.terraco', compact('lights','luzes','tomadas'));
+    }
+
+    public function quarto()
+    {
+        $lights = Lights_Socket::all();
+
+        return view('house.quarto', compact('lights'));
     }
 
     public static function receiveOfArduino($code,$status,$type)
