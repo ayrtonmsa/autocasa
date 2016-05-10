@@ -22,73 +22,27 @@
 
 					<div class="panel-body">
 						<div class="row">
-							<a class="small-box-footer" href="{{ url('house/terraco') }}">
-								<div class="col-lg-3 col-xs-6" style="position:absolute; left:65px; top:380px; width:330px; height:280px;" >
+							<a class="small-box-footer" href="{{ url('house/cozinha') }}">
+								<div class="col-lg-3 col-xs-6" style="position:absolute; left:65px; top:150px; width:330px; height:280px;" onMouseOver="this.style.backgroundColor='rgba(255,255,0,0.4)'" onMouseOut="this.style.backgroundColor='transparent'">
 								</div>
 							</a>
-							<div class="col-lg-3 col-xs-6">
-								<div class="small-box bg-green">
-									<div class="inner"><h3>Sala</h3></div>
-									<div class="icon"><i class="fa fa-gamepad"></i></div>
-									<a class="small-box-footer" href="{{ url('home') }}">
-										Ir para
-										<i class="fa fa-arrow-circle-right"></i>
-									</a>
+							<a class="small-box-footer" href="{{ url('house/banheiro') }}">
+								<div class="col-lg-3 col-xs-6" style="position:absolute; left:400px; top:150px; width:140px; height:280px;" onMouseOver="this.style.backgroundColor='rgba(255,255,0,0.4)'" onMouseOut="this.style.backgroundColor='transparent'">
 								</div>
-							</div>
-							<div class="col-lg-3 col-xs-6">
-								<div class="small-box bg-yellow">
-									<div class="inner"><h3>Quarto 1</h3></div>
-									<div class="icon"><i class="fa fa-hotel"></i></div>
-									<a class="small-box-footer" href="{{ url('home') }}">
-										Ir para
-										<i class="fa fa-arrow-circle-right"></i>
-									</a>
+							</a>
+							<a class="small-box-footer" href="{{ url('house/quarto1') }}">
+								<div class="col-lg-3 col-xs-6" style="position:absolute; left:545px; top:150px; width:355px; height:280px;" onMouseOver="this.style.backgroundColor='rgba(255,255,0,0.4)'" onMouseOut="this.style.backgroundColor='transparent'">
 								</div>
-							</div>
-							<div class="col-lg-3 col-xs-6">
-								<div class="small-box bg-red">
-									<div class="inner"><h3>Quarto 2</h3></div>
-									<div class="icon"><i class="fa fa-hotel"></i></div>
-									<a class="small-box-footer" href="{{ url('home') }}">
-										Ir para
-										<i class="fa fa-arrow-circle-right"></i>
-									</a>
+							</a>
+							<a class="small-box-footer" href="{{ url('house/sala') }}">
+								<div class="col-lg-3 col-xs-6" style="position:absolute; left:65px; top:435px; width:470px; height:280px;" onMouseOver="this.style.backgroundColor='rgba(255,255,0,0.4)'" onMouseOut="this.style.backgroundColor='transparent'">
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-3 col-xs-6">
-								<div class="small-box bg-aqua">
-									<div class="inner"><h3>Cozinha</h3></div>
-									<div class="icon"><i class="fa fa-glass"></i></div>
-									<a class="small-box-footer" href="{{ url('home') }}">
-										Ir para
-										<i class="fa fa-arrow-circle-right"></i>
-									</a>
+							</a>
+							<a class="small-box-footer" href="{{ url('house/quarto2') }}">
+								<div class="col-lg-3 col-xs-6" style="position:absolute; left:540px; top:435px; width:365px; height:280px;" onMouseOver="this.style.backgroundColor='rgba(255,255,0,0.4)'" onMouseOut="this.style.backgroundColor='transparent'">
 								</div>
-							</div>
-							<div class="col-lg-3 col-xs-6">
-								<div class="small-box bg-green">
-									<div class="inner"><h3>Banheiro</h3></div>
-									<div class="icon"><i class="fa fa-exclamation-circle"></i></div>
-									<a class="small-box-footer" href="{{ url('home') }}">
-										Ir para
-										<i class="fa fa-arrow-circle-right"></i>
-									</a>
-								</div>
-							</div>
-							<div class="col-lg-3 col-xs-6">
-								<div class="small-box bg-yellow">
-									<div class="inner"><h3>Área Extra 1</h3></div>
-									<div class="icon"><i class="fa fa-home"></i></div>
-									<a class="small-box-footer" href="{{ url('home') }}">
-										Ir para
-										<i class="fa fa-arrow-circle-right"></i>
-									</a>
-								</div>
-							</div>
-							<div class="col-lg-3 col-xs-6">
+							</a>
+							<!-- <div class="col-lg-3 col-xs-6">
 								<div class="small-box bg-red">
 									<div class="inner"><h3>Área Extra 2</h3></div>
 									<div class="icon"><i class="fa fa-home"></i></div>
@@ -97,7 +51,7 @@
 										<i class="fa fa-arrow-circle-right"></i>
 									</a>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 

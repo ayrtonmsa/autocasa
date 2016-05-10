@@ -37,6 +37,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('lights_sockets/{id}/alterarStatus', ['as' => 'alterarStatus', 'uses' => 'Lights_SocketsController@alterarStatus']);
 
     Route::get('house/terraco', ['as' => 'terraco', 'uses' => 'HouseController@terraco']);
+    
+    Route::get('house/sala', ['as' => 'terraco', 'uses' => 'HouseController@terraco']);
 
 });
 Route::get('house/receiveOfArduino/code/{code}/status/{status}/type/{type}', ['as' => 'receiveOfArduino', 'uses' => 'HouseController@receiveOfArduino']);

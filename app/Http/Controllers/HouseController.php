@@ -18,7 +18,16 @@ class HouseController extends Controller
 
         $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
-        socket_connect($sock,"192.168.25.31", 80);
+        //socket_connect($sock,"192.168.25.31", 80);
+
+        if(!socket_connect($sock , '192.168.25.31' , 80))
+        {
+            $errorcode = socket_last_error();
+            $errormsg = socket_strerror($errorcode);
+             
+            die("Could not connect: [$errorcode] $errormsg \n");
+        }
+         dd('oi');
 
         socket_write($sock,'R#',2); //Requisita o status do sistema.
  
