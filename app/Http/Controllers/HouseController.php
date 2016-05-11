@@ -18,27 +18,38 @@ class HouseController extends Controller
 
         $sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
-        socket_connect($sock , '192.168.25.31' , 80);
+        $connect = HouseController::pingAddress('192.168.25.31');
 
-        socket_write($sock,'R#',2); //Requisita o status do sistema.
+        if ($connect) {
+            socket_connect($sock , '192.168.25.31' , 80);
 
-		// Espera e lê o status e define o status da luz na pagina.
-		$status = socket_read($sock,6);
-		$status = explode("L", $status);
-		$luzes = $status[0];
-		$status = explode("T", $status[1]);
-		$tomadas = $status[0];
+            socket_write($sock,'R#',2); //Requisita o status do sistema.
 
-		$luzes = str_split($luzes);
-		for ($i=0; $i < count($luzes); $i++) {
-			Lights_Socket::where('code',$i)->where('type','L')->update(['status'=>$luzes[$i]]);
-		}
-		$tomadas = str_split($tomadas);
-		for ($i=0; $i < count($tomadas); $i++) {
-			Lights_Socket::where('code',$i)->where('type','T')->update(['status'=>$tomadas[$i]]);
-		}
+    		// Espera e lê o status e define o status da luz na pagina.
+    		$status = socket_read($sock,6);
+    		$status = explode("L", $status);
+    		$luzes = $status[0];
+    		$status = explode("T", $status[1]);
+    		$tomadas = $status[0];
 
-        return view('house.terraco', compact('lights','luzes','tomadas'));
+    		$luzes = str_split($luzes);
+    		for ($i=0; $i < count($luzes); $i++) {
+    			Lights_Socket::where('code',$i)->where('type','L')->update(['status'=>$luzes[$i]]);
+    		}
+    		$tomadas = str_split($tomadas);
+    		for ($i=0; $i < count($tomadas); $i++) {
+    			Lights_Socket::where('code',$i)->where('type','T')->update(['status'=>$tomadas[$i]]);
+    		}
+            
+            return view('house.terraco', compact('lights','luzes','tomadas'));
+        }else{
+            $lights = Lights_Socket::all();
+            $luzes =Lights_Socket::all();
+            $tomadas =Lights_Socket::all();
+            return view('house.terraco', compact('lights','luzes','tomadas'));
+        }
+
+
     }
 
     public function quarto()
@@ -57,6 +68,15 @@ class HouseController extends Controller
         }else{
             $name['name'] = 'Erro';
             Log::create($name);
+        }
+    }
+
+    public static function pingAddress($ip) {
+    $pingresult = exec("/bin/ping -n 3 $ip", $outcome, $status);
+        if ($status == 0) {
+            return true;
+        } else {
+            return false;
         }
     }
 

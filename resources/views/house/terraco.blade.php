@@ -8,7 +8,7 @@
 	.featured-image {
 	    background: no-repeat center;
 	    width: 500px;
-	    height: 450px;
+	    height: 1200px;
 	    background-size: cover;
 	}
 </style>
