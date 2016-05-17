@@ -12,7 +12,7 @@
         {{Session::forget('sucess')}}
     </div>
 @elseif(Session::has('error'))
-    <div class="alert alert-success">
+    <div class="alert alert-error">
         {{Session::get('flash_message')}}
         {{Session::forget('flash_message')}}
         {{Session::forget('error')}}

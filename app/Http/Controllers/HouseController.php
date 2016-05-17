@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Lights_Socket;
 use App\Log;
+use Session;
 
 class HouseController extends Controller
 {
@@ -43,6 +44,9 @@ class HouseController extends Controller
             
             return view('house.terraco', compact('lights','luzes','tomadas'));
         }else{
+            Session::flash('flash_message', 'Sem conexão com arduino, as alterações não serão salvas.!');
+            Session::flash('error', 'Error!');
+
             $lights = Lights_Socket::all();
             $luzes =Lights_Socket::all();
             $tomadas =Lights_Socket::all();
@@ -71,13 +75,9 @@ class HouseController extends Controller
         }
     }
 
-    public static function pingAddress($ip) {
-    $pingresult = exec("/bin/ping -n 3 $ip", $outcome, $status);
-        if ($status == 0) {
-            return true;
-        } else {
-            return false;
-        }
+    public static function pingAddress($ip) 
+    {
+        if (!$socket = @fsockopen($ip, 80, $errno, $errstr, 30)) { return false; } else { return true; fclose($socket); }
     }
 
 }

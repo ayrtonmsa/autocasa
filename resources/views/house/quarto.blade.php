@@ -24,15 +24,15 @@
                         <div class="row">
                             <div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:130px; top:240px;">
                                 <?php
-                                    if ($lights[0]->status == "0") {
-                                        if($lights[0]->type == 'L')
+                                    if ($lights[5]->status == "0") {
+                                        if($lights[5]->type == 'L')
                                         {
                                             $lamp = "/img/lampada-apagada.jpg";
                                         }else{
                                             $lamp = "/img/off.jpg";
                                         }
                                     }else{
-                                        if($lights[0]->type == 'L')
+                                        if($lights[5]->type == 'L')
                                         {
                                             $lamp ="/img/lampada-acesa.jpg";
                                         }else{
@@ -40,9 +40,9 @@
                                         }
                                     }
                                 ?>
-                                <a href="{{ url('lights_sockets/' . $lights[0]->id . '/alterarStatusOff') }}">
+                                <a href="{{ url('lights_sockets/' . $lights[5]->id . '/alterarStatusOff') }}">
                                 <img border="0" alt="Lampada" src="{{asset(''.$lamp.'')}}" width="50" height="50">
-                                <div class="inner"><h6>{{$lights[0]->name}}</h6></div>
+                                <div class="inner"><h6>{{$lights[5]->name}}</h6></div>
                                 </a>
                             </div>
                             <div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:370px; top:390px;">
