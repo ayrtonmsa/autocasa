@@ -34,15 +34,17 @@ class HouseController extends Controller
     		$tomadas = $status[0];
 
     		$luzes = str_split($luzes);
+            
     		for ($i=0; $i < count($luzes); $i++) {
-    			Lights_Socket::where('code',$i)->where('type','L')->update(['status'=>$luzes[$i]]);
+    			Lights_Socket::where('code',$i+1)->where('type','L')->update(['status'=>$luzes[$i]]);
     		}
     		$tomadas = str_split($tomadas);
     		for ($i=0; $i < count($tomadas); $i++) {
-    			Lights_Socket::where('code',$i)->where('type','T')->update(['status'=>$tomadas[$i]]);
+    			Lights_Socket::where('code',$i+1)->where('type','T')->update(['status'=>$tomadas[$i]]);
     		}
-            
+
             return view('house.terraco', compact('lights','luzes','tomadas'));
+
         }else{
             Session::flash('flash_message', 'Sem conexão com arduino, as alterações não serão salvas.!');
             Session::flash('error', 'Error!');
@@ -50,10 +52,10 @@ class HouseController extends Controller
             $lights = Lights_Socket::all();
             $luzes =Lights_Socket::all();
             $tomadas =Lights_Socket::all();
+
             return view('house.terraco', compact('lights','luzes','tomadas'));
+
         }
-
-
     }
 
     public function quarto()
@@ -79,5 +81,4 @@ class HouseController extends Controller
     {
         if (!$socket = @fsockopen($ip, 80, $errno, $errstr, 30)) { return false; } else { return true; fclose($socket); }
     }
-
 }

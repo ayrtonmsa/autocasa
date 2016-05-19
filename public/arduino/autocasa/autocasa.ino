@@ -84,7 +84,7 @@ void loop() {
           Tomada[msg[1]] = msg[2];
           switch (msg[1]) {
             case '1':
-              if (Tomada[msg[1]] == '1') digitalWrite(A2, HIGH); else digitalWrite(A3, LOW);
+              if (Tomada[msg[1]] == '1') digitalWrite(A2, HIGH); else digitalWrite(A2, LOW);
               Status[3] = msg[2];
               break;
           }
@@ -95,15 +95,4 @@ void loop() {
       }
     }
   }
-  //Serial.println("Connecting 192.168.25.8");
-  //if (clientaux.connect("192.168.25.8", 80)) {
-  //Serial.println("connect");
-  //clientaux.print("GET http://192.168.25.8/autocasa/public/house/receiveOfArduino/code/1/status/1/type/L");
-  //clientaux.println(" HTTP/1.1");
-  //clientaux.println("Host: 192.168.25.8");
-  //clientaux.println();
-  //}
-  //if (clientaux.connected()) {
-  //clientaux.stop();
-  //}
 }

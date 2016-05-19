@@ -94,21 +94,6 @@
 									<div class="inner"><h6>{{$lights[1]->name}}</h6></div>
 									</a>
 								</div>
-								<!-- <div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:65px; top:150px;">
-									<?php
-										if (isset($luzes[($lights[2]->code -1)])&&($luzes[($lights[2]->code -1)] == "0")) {
-											$lamp = "/img/lampada-apagada.jpg";
-										}elseif (isset($luzes[($lights[2]->code -1)])&&($luzes[($lights[2]->code -1)] == "1")) {
-											$lamp ="/img/lampada-acesa.jpg";
-										}else{
-											$lamp = "/img/lampada-disconectada.jpg";
-										}
-									?>
-									<a href="{{ url('lights_sockets/' . $lights[2]->id . '/alterarStatus') }}">
-									<img border="0" alt="Lampada" src="{{asset(''.$lamp.'')}}" width="50" height="50">
-									<div class="inner"><h6>{{$lights[2]->name}}</h6></div>
-									</a>
-								</div> -->
 								<div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:350px; top:1080px;">
 									<?php
 										if (isset($luzes[($lights[3]->code -1)])&&($luzes[($lights[3]->code -1)] == "0")) {
