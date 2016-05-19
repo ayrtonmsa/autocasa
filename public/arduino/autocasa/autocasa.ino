@@ -18,15 +18,21 @@ int botao1 = 6;
 int botao2 = 7;
 int bot1e = 0;
 int bot2e = 0;
+// variaveis dos leds da tomada
+int tl = 30;
+int td = 31;
 void setup() {
   Ethernet.begin(mac, ip, gateway, subnet);
   server.begin();
   pinMode(A0, OUTPUT);
   pinMode(A1, OUTPUT);
   pinMode(A2, OUTPUT);
+  pinMode(tl, OUTPUT);
+  pinMode(td, OUTPUT);
   pinMode(botao1, INPUT);
   pinMode(botao2, INPUT);
   Serial.begin(9600);
+  digitalWrite(td, HIGH);
 }
 void loop() {
   bot1e = digitalRead(botao1);
@@ -84,7 +90,7 @@ void loop() {
           Tomada[msg[1]] = msg[2];
           switch (msg[1]) {
             case '1':
-              if (Tomada[msg[1]] == '1') digitalWrite(A2, HIGH); else digitalWrite(A2, LOW);
+              if (Tomada[msg[1]] == '1') {digitalWrite(A2, HIGH);digitalWrite(tl, HIGH);digitalWrite(td, LOW);} else {digitalWrite(A2, LOW);digitalWrite(tl, LOW);digitalWrite(td, HIGH);}
               Status[3] = msg[2];
               break;
           }

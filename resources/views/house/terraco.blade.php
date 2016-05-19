@@ -96,7 +96,7 @@
 								</div>
 								<div class="col-lg-3 col-xs-6" align="center" style="position:absolute; left:350px; top:1080px;">
 									<?php
-										if (isset($luzes[($lights[3]->code -1)])&&($luzes[($lights[3]->code -1)] == "0")) {
+										if (isset($tomadas[($lights[3]->code -1)])&&($tomadas[($lights[3]->code -1)] == "0")) {
 											if($lights[3]->type == 'L')
 											{
 												$lamp = "/img/lampada-apagada.jpg";
@@ -105,7 +105,7 @@
 												$lamp = "/img/off.jpg";
 												?><a href="{{ url('lights_sockets/' . $lights[3]->id . '/alterarStatus') }}"><?php
 											}
-										}elseif (isset($luzes[($lights[3]->code -1)])&&($luzes[($lights[3]->code -1)] == "1")) {
+										}elseif (isset($tomadas[($lights[3]->code -1)])&&($tomadas[($lights[3]->code -1)] == "1")) {
 											if($lights[3]->type == 'L')
 											{
 												$lamp ="/img/lampada-acesa.jpg";
